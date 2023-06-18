@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.box {
+  border: 0.1px solid hsl(var(--a) / 0.2);
+  padding: 1em;
+}
