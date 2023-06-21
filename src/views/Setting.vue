@@ -188,9 +188,19 @@ onMounted(() => {
   </div>
 
   <div class="btn-save">
-    <button class="btn btn-primary mt-10" @click="onSave">
-      Save
-    </button>
+    <div class="flex justify-between items-end gap-5">
+      <div class="flex justify-between w-full">
+        <span>
+          Developed by <a href="https://safagayret.com"><strong>Safa Gayret</strong></a>
+        </span>
+        <span>
+          Code <a href="https://github.com/gayret/fake-chat-for-movie"><strong>on GitHub</strong></a>
+        </span>
+      </div>
+      <button class="btn btn-primary mt-10" @click="onSave">
+        Save
+      </button>
+    </div>
   </div>
 </template>
 
@@ -205,8 +215,6 @@ label {
 .btn-save {
   position: sticky;
   bottom: 0;
-  display: flex;
-  justify-content: flex-end;
   background: linear-gradient(180deg, transparent 0%, hsl(var(--b1)) 100%);
   padding: 1em 0;
 }
