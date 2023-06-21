@@ -17,16 +17,14 @@ const togglePage = () => {
   <div class="wrapper">
     <div class="layout">
       <header>
-        <button class="btn" @click="togglePage">
-          {{ state.page === 'setting' ? 'Show Chat' : 'Settings' }}
-        </button>
+        <button class="btn" @click="togglePage" v-if="state.page === 'setting'">Chat</button>
       </header>
       <main>
         <section v-show="state.page === 'setting'">
           <Setting />
         </section>
         <section v-if="state.page === 'chat'">
-          <Chat />
+          <Chat @togglePage="togglePage" />
         </section>
       </main>
     </div>
