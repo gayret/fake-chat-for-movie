@@ -113,8 +113,8 @@ const addMessage = () => {
   }
 }
 
-const removeMessage = (type, index) => {
-  settings.messages[type].splice(index, 1)
+const removeMessage = (index) => {
+  settings.messages.splice(index, 1)
 }
 
 const onSave = () => {
