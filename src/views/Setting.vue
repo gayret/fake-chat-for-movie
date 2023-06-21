@@ -117,6 +117,10 @@ const removeMessage = (index) => {
   settings.messages.splice(index, 1)
 }
 
+const onInputMessage = (e, message) => {
+  message.typingTime = e.target.value.length * 100
+}
+
 const onSave = () => {
   localStorage.setItem('settings', JSON.stringify(settings))
 }
@@ -159,7 +163,7 @@ onMounted(() => {
       <div class="from">
         <div class="messages">
           <div class="box" v-for="(message, index) in settings.messages" :key="message.id">
-            <textarea class="textarea w-full" v-model="message.text"></textarea>
+            <textarea class="textarea w-full" v-model="message.text" @input="onInputMessage($event, message)"></textarea>
             <label class="label typing-time">
               Typing side
               <select class="select select-primary" v-model="message.type">
@@ -168,11 +172,15 @@ onMounted(() => {
               </select>
             </label>
             <label class="label typing-time">
-              Typing time
+              <span>
+                Typing time <i>(ms)</i>
+              </span>
               <input type="number" v-model="message.typingTime">
             </label>
             <label class="label wait-after">
-              Wait after
+              <span>
+                Wait after <i>(ms)</i>
+              </span>
               <input type="number" v-model="message.waitAfter">
             </label>
             <button v-if="settings.messages.length > 1" class="btn  btn-sm" @click="removeMessage(index)">
