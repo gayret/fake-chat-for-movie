@@ -1,7 +1,8 @@
 <script setup>
-import { reactive, watch, onMounted, ref } from 'vue'
+import { reactive, watch, onMounted } from 'vue'
 
 const themes = [
+  'business',
   'light',
   'dark',
   'cupcake',
@@ -25,7 +26,6 @@ const themes = [
   'dracula',
   'cmyk',
   'autumn',
-  'business',
   'acid',
   'lemonade',
   'night',
@@ -129,14 +129,14 @@ onMounted(() => {
 
 <template>
   <h1 class="text-lg font-bold mb-4 mt-4">Settings</h1>
+  <div class="theme mb-6 box">
+    Theme
+    <select id="theme-changer" class="select select-primary w-full" @change="onChangeTheme">
+      <option v-for="theme in themes" :value="theme">{{ theme }}</option>
+    </select>
+  </div>
   <div>
     <h2 class="font-bold">Screen Information</h2>
-    <div class="theme">
-      Theme
-      <select id="theme-changer" class="select select-primary w-full" @change="onChangeTheme">
-        <option v-for="theme in themes" :value="theme">{{ theme }}</option>
-      </select>
-    </div>
     <form class="flex flex-col gap-2">
       <div class="from box flex flex-col">
         From
@@ -189,7 +189,7 @@ onMounted(() => {
 
   <div class="btn-save">
     <div class="flex justify-between items-end gap-5">
-      <div class="flex justify-between w-full">
+      <div class="flex justify-between w-full text-xs">
         <span>
           Developed by <a href="https://safagayret.com"><strong>Safa Gayret</strong></a>
         </span>
