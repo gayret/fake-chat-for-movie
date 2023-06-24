@@ -1,17 +1,8 @@
 import { defineConfig } from 'vite'
-import { VitePWA } from 'vite-plugin-pwa'
 import vue from '@vitejs/plugin-vue'
+import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    VitePWA({
-      registerType: 'autoUpdate',
-      devOptions: {
-        enabled: true,
-      },
-      injectRegister: 'auto',
-    }),
-  ],
+  plugins: [vue(), VitePWA()],
 })
